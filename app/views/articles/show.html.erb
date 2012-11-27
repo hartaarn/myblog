@@ -1,25 +1,33 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @article.body %>
-</p>
-
-
+<div id="article-content" class="span-17">
+  <div class="article_title">
+  <h1><%= @article.title %></h1>
+  </div>
+ <div class="article_body">
+    <p>By "Bob"
+    on <%= @article.created_at.strftime("%B %d, %Y") %>
+    </p>
+    <p>
+      <%= @article.body %>
+    </p>
+  </div>
+</div>
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
 
-	<%= render :partial => @article.comments %>
+
+
+	
+</div>
+<div id="comments">
+<h2>Comments</h2>
+  <%= render :partial => @article.comments %>
 </div>
 
-<h2>Comments</h2>
+
+
 
 <%= form_for([@article, @article.comments.build]) do |f| %>
+
 	<div class="field">
 		<%= f.label :name %><br />
 		<%= f.text_field :name %>
@@ -34,4 +42,3 @@
 	</div>
 	<p><%= f.submit %></p>
 <% end %>
-
