@@ -22,6 +22,10 @@
   font-size:11px;
 }
 
+#comment_text {
+padding: 0 0 0 45px;
+}
+
 .article_body{
   margin-bottom:1.5em;
 }
